@@ -6,10 +6,9 @@
 
 const { Pool } = require('pg')
 
-// TODO: tirar sua senha!
 const pool = new Pool({
-  user: 'mariannesalomao',
-  password: 'mari0828',
+  user: 'SEU_USUÁRIO_NO_DATABASE',
+  password: 'SUA_SENHA',
   host: 'localhost',
   port: 5432,
   database: 'virtual-library'
