@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="readerForm" novalidate (submit)="onSubmit()">
+      <!-- INÍCIO BLOCO: Reader Name -->
+      <div class="form-group">
+        <label class="font-weight-bold" for="reader-name">Nome do Leitor</label>
+        <input type="text" class="form-control" placeholder="Digite o nome" formControlName="name" #name />
+      </div>
+      <div *ngIf="validatorsInputs('name')" class="alert alert-danger">
+        <div *ngIf="validatorErrorsRequired('name')">
+          O campo de Nome é obrigatório.
+        </div>
+      </div>
+      <!-- FIM BLOCO: Reader Name -->
+
+      <!-- INÍCIO BLOCO: Email Reader -->
+      <div class="form-group">
+        <label class="font-weight-bold" for="email-reader">Email do Leitor</label>
+        <input class="form-control" type="email" placeholder="Digite o email." formControlName="email_reader" #email_reader />
+      </div>
+      <div *ngIf="validatorsInputs('email_reader')" class="alert alert-danger">
+        <div *ngIf="validatorErrorsRequired('email_reader')">
+          O campo de Email é obrigatório.
+        </div>
+      </div>
+      <!-- FIM BLOCO: Email Reader -->
+
+      <!-- INÍCIO BLOCO: Redes Sociais -->
+      <div class="form-group">
+        <label class="font-weight-bold" for="network">Redes Sociais</label>
+        <input class="form-control" type="text" placeholder="Redes Sociais" formControlName="network" #network />
+      </div>
+      <!-- FIM BLOCO: Redes Sociais -->
+
+      <div class="form-group">
+        <!-- O botão será o mesmo tanto para cadastrar, quanto editar pois a unica coisa que ele faz é chamar o método 'onSubmit' do formulário -->
+        <button class="btn btn-primary" type="submit" [disabled]="readerForm.pristine || readerForm.invalid">
+          <!-- Caso employee_id não exista, então mostra o icon e a mensagem de registrar -->
+          <ng-container *ngIf="!id_reader">
+            <fa-icon [icon]="icons.faUserPlus"></fa-icon> Registrar Leitor
+          </ng-container>
+
+          <!-- Caso employee_id exista, então mostra o icon e a mensagem de editar -->
+          <ng-container *ngIf="id_reader">
+            <fa-icon [icon]="icons.faUserEdit"></fa-icon> Editar Leitor
+          </ng-container>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

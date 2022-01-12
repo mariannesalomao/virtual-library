@@ -1,0 +1,37 @@
+{
+  "name": "library-api",
+  "version": "1.0.0",
+  "description": "Virtual Library",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon",
+    "lint": "eslint --ext .js -f ./node_modules/eslint-friendly-formatter . --fix",
+    "prepush": "npm run lint",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "api",
+    "crud",
+    "express",
+    "serverless",
+    "postgresql",
+    "sql",
+    "javascript"
+  ],
+  "author": "Marianne Salomao (@mariannesalomao) - Instagram - LinkedIn",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "husky": "^7.0.4",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "express": "^4.17.2",
+    "express-promise-router": "^4.1.1",
+    "pg": "^8.7.1"
+  }
+}

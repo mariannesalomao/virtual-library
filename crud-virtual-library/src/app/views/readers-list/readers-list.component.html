@@ -1,0 +1,39 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>Nome do Leitor</td>
+    <td>Email do Leitor</td>
+    <td>Redes Sociais do Leitor</td>
+    <td colspan="2">Ações</td>
+  </tr>
+  </thead>
+
+  <tbody>
+  <!-- Sessão para mostrar algo na tela, caso não exista nenhum leitor cadastrado -->
+  <tr *ngIf="!readers.length">
+    <td colspan="6">
+      <h3>NÃO EXISTE LEITORES CADASTRADOS AINDA</h3>
+      Clique&nbsp;<a [routerLink]="['/readers']">aqui</a>&nbsp;para cadastrar um agora!
+    </td>
+  </tr>
+  <!-- Adicionado trackBy para nao ter re-render desnecessário na lista (isso ajuda quando a lista está muito grande) -->
+  <tr *ngFor="let reader of readers; trackBy: identify">
+    <td>{{ reader.name_reader }}</td>
+    <td>{{ reader.email }}</td>
+<!--    <td>{{ reader.salary | currency:'USD':'code' }}</td>-->
+    <td>{{ reader.social_network_reader }}</td>
+    <td>
+      <a [routerLink]="['/readers', reader.id_reader]" class="btn btn-success">
+        <fa-icon [icon]="icons.faEdit"></fa-icon>
+        Editar
+      </a>
+    </td>
+<!--    <td>-->
+<!--      <button (click)="deleteReader(reader.id_reader)" class="btn btn-danger">-->
+<!--        <fa-icon [icon]="icons.faTrash"></fa-icon>-->
+<!--        Deletar-->
+<!--      </button>-->
+<!--    </td>-->
+  </tr>
+  </tbody>
+</table>
